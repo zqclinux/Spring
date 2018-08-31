@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="jackson-core-2.9.6">
+    <CLASSES>
+      <root url="jar://D:/java1.8/jdk/ext-jar/jackson/old/jackson-annotations-2.2.1.jar!/" />
+      <root url="jar://D:/java1.8/jdk/ext-jar/jackson/old/jackson-core-2.2.1.jar!/" />
+      <root url="jar://D:/java1.8/jdk/ext-jar/jackson/old/jackson-core-asl-1.8.8.jar!/" />
+      <root url="jar://D:/java1.8/jdk/ext-jar/jackson/old/jackson-databind-2.2.1.jar!/" />
+      <root url="jar://D:/java1.8/jdk/ext-jar/jackson/old/jackson-mapper-asl-1.8.8.jar!/" />
+      <root url="jar://D:/java1.8/jdk/ext-jar/jackson/old/jackson-module-jaxb-annotations-2.2.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

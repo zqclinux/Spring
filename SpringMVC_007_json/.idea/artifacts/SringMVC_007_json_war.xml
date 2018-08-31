@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="SringMVC_007_json:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="ConversionService.war">
+      <element id="artifact" artifact-name="SringMVC_007_json:war exploded" />
+    </root>
+  </artifact>
+</component>
