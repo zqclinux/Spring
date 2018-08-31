@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace指用户自定义的命名空间。 -->
+<mapper namespace="com.zqc.mapper.UserMapper">
+
+    <!--
+        id="save"是唯一的标示符
+        parameterType属性指明插入时使用的参数类型
+        useGeneratedKeys="true"表示使用数据库的自动增长策略
+     -->
+    <select id="selectUser" parameterType="int" resultType="com.zqc.domain.User">
+    SELECT * FROM TB_USER WHERE id = #{id}
+    </select>
+
+    <resultMap id="userResultMap" type="com.zqc.domain.User">
+        <id property="id" column="user_id"/>
+        <result property="name" column="user_name"/>
+        <result property="age" column="user_age"/>
+        <result property="sex" column="user_sex"/>
+    </resultMap>
+
+    <select id="selectUserAll_3" resultMap="userResultMap">
+        select * from tb_user_2
+    </select>
+
+    <resultMap id="studentResultMap" type="com.zqc.domain.Student">
+        <id property="id" column="id"/>
+        <result property="sex" column="sex"/>
+        <result property="age" column="age"/>
+        <result property="name" column="name"/>
+        <!--关联映射1-->
+        <association property="clazz" column="clazz_id" javaType="com.zqc.domain.Clazz"
+                     select="selectClazzWithId"/>
+    </resultMap>
+    <select id="selectClazzWithId" resultType="com.zqc.domain.Clazz">
+        select * from tb_clazz where id = #{id}
+    </select>
+
+    <select id="selectStudent" resultMap="studentResultMap">
+        select * from tb_student
+    </select>
+
+    <resultMap id="clazzResultMap" type="com.zqc.domain.Clazz">
+        <id property="id" column="id"/>
+        <result property="code" column="code"/>
+        <collection property="students" javaType="ArrayList" column="id"
+                    ofType="com.zqc.domain.Student" select="selectStudentWithId"/>
+    </resultMap>
+    <select id="selectStudentWithId" resultType="com.zqc.domain.Student">
+        select * from tb_student where clazz_id = #{id}
+    </select>
+    <select id="selectClazz" resultMap="clazzResultMap">
+        select * from tb_clazz
+    </select>
+
+</mapper>
