@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zqc.mapper.StudentMapper">
+    <resultMap id="studentResultMap" type="com.zqc.domain.Student">
+        <id property="id" column="id"/>
+        <result property="age" column="age"/>
+        <result property="name" column="name"/>
+        <result property="sex" column="sex"/>
+        <association property="clazz" javaType="com.zqc.domain.Clazz">
+            <id property="id" column="id"/>
+            <result property="code" column="code"/>
+            <result property="name" column="name"/>
+        </association>
+    </resultMap>
+    <select id="selectStudentById" parameterType="int"
+            resultMap="studentResultMap">
+        SELECT * FROM tb_clazz_2 c,tb_student_2 s
+         where c.id = s.id and s.id = #{id}
+    </select>
+    <select id="selectStudentByClazzId" parameterType="int"
+            resultMap="studentResultMap">
+        select * from tb_student_2 where clazz_id = #{id}
+    </select>
+</mapper>

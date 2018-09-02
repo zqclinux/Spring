@@ -5,8 +5,8 @@ import java.io.Serializable;
 /**
  * Created by Interllij IDEA
  * User:Zqc
- * Data:2018/8/31
- * Time:21:02
+ * Data:2018/9/1
+ * Time:17:19
  * Email:quanchaozhao@yeah.net
  * To change this template use File | Settings | File Templates.
  */
@@ -15,12 +15,14 @@ public class Student implements Serializable {
     private String name;
     private String sex;
     private Integer age;
-    private Clazz clazz_id;
+    private Clazz clazz;
 
-    @Override
-    public String toString() {
-        return "[ id: " + id + ",name: " + name + ",sex " + sex
-                + ",age: " + age + ",clazz_id: " + clazz_id.toString() + "]";
+    public Clazz getClazz() {
+        return clazz;
+    }
+
+    public void setClazz(Clazz clazz) {
+        this.clazz = clazz;
     }
 
     public Integer getId() {
@@ -55,11 +57,9 @@ public class Student implements Serializable {
         this.age = age;
     }
 
-    public Clazz getClazz_id() {
-        return clazz_id;
-    }
-
-    public void setClazz_id(Clazz clazz_id) {
-        this.clazz_id = clazz_id;
+    @Override
+    public String toString() {
+        return "Student:[Name: " + name + ",Id: " + id +  ",Age: " + age
+                + ",Sex: " + sex + "]";
     }
 }

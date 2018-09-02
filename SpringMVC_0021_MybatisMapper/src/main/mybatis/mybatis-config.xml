@@ -16,6 +16,8 @@
          as some drivers deny compatibility but still work -->
         <setting name="useGeneratedKeys" value="true"/>
         <setting name="logImpl" value="LOG4J"/>
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"/>
     </settings>
     <!-- Continue going here -->
     <environments default="mysql">
@@ -32,7 +34,10 @@
     </environments>
 
     <mappers>
-        <mapper resource="com/zqc/mapper/UserMapper.xml"/>
+        <mapper resource="com/zqc/mapper/PersonMapper.xml"/>
+        <mapper resource="com/zqc/mapper/CardMapper.xml"/>
+        <mapper resource="com/zqc/mapper/ClazzMapper.xml"/>
+        <mapper resource="com/zqc/mapper/StudentMap.xml"/>
     </mappers>
 
 </configuration>

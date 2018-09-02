@@ -30,7 +30,7 @@
         <result property="age" column="age"/>
         <result property="name" column="name"/>
         <!--关联映射1-->
-        <association property="clazz" column="clazz_id" javaType="com.zqc.domain.Clazz"
+        <association property="clazz_id" column="clazz_id" javaType="com.zqc.domain.Clazz"
                      select="selectClazzWithId"/>
     </resultMap>
     <select id="selectClazzWithId" resultType="com.zqc.domain.Clazz">

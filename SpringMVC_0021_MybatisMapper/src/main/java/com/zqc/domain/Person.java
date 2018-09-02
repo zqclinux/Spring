@@ -5,23 +5,17 @@ import java.io.Serializable;
 /**
  * Created by Interllij IDEA
  * User:Zqc
- * Data:2018/8/31
- * Time:21:02
+ * Data:2018/9/1
+ * Time:13:35
  * Email:quanchaozhao@yeah.net
  * To change this template use File | Settings | File Templates.
  */
-public class Student implements Serializable {
+public class Person implements Serializable {
     private Integer id;
     private String name;
     private String sex;
     private Integer age;
-    private Clazz clazz_id;
-
-    @Override
-    public String toString() {
-        return "[ id: " + id + ",name: " + name + ",sex " + sex
-                + ",age: " + age + ",clazz_id: " + clazz_id.toString() + "]";
-    }
+    private Card card;
 
     public Integer getId() {
         return id;
@@ -55,11 +49,17 @@ public class Student implements Serializable {
         this.age = age;
     }
 
-    public Clazz getClazz_id() {
-        return clazz_id;
+    public Card getCard() {
+        return card;
     }
 
-    public void setClazz_id(Clazz clazz_id) {
-        this.clazz_id = clazz_id;
+    public void setCard(Card card) {
+        this.card = card;
+    }
+
+    @Override
+    public String toString() {
+        return "Person:[ id: " + id + ",name: " + name
+                + ",age: " + age + ",sex: " + sex + "," + card.toString() + "]";
     }
 }

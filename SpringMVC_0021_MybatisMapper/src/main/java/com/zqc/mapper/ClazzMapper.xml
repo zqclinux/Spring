@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zqc.mapper.ClazzMapper">
+    <resultMap id="clazzResultMap" type="com.zqc.domain.Clazz">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="code" column="code"/>
+        <collection property="studentList" column="id" javaType="ArrayList"
+                    ofType="com.zqc.domain.Student"
+                    select="com.zqc.mapper.StudentMapper.selectStudentByClazzId"
+                    fetchType="lazy">
+            <id property="id" column="id"/>
+            <result property="name" column="name"/>
+            <result property="age" column="age"/>
+            <result property="sex" column="sex"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectClazzById" parameterType="int"
+            resultMap="clazzResultMap">
+        SELECT * FROM tb_clazz_2 where id = #{id}
+    </select>
+</mapper>
