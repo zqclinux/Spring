@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * To change this template use File | Settings | File Templates.
  */
 @Controller
-public class TestController {
+public class FormController {
     @RequestMapping(value = "/{formName}")
     public String loginForm(@PathVariable String formName) {
         // 动态跳转页面
